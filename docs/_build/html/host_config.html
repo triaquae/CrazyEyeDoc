@@ -70,9 +70,9 @@
 <div class="highlight-shell"><div class="highlight"><pre><span class="c">#还记得在安装CrazyEye时需要安装的Shellinabox吗,Well，你的WEB SSH支持就得依赖这个插件，事实上Shellinabox是一个独立的开源工具，我们只不需要在CrazyEye配置好如何调用它即可</span>
 <span class="c">#当你安装完Shellinabox后，执行shellinaboxd 即可启动该软件，然后执行netstat -tulnp |grep 4200查看其状态</span>
 
-shellinaboxd <span class="c">#启动shellinabox</span>
+<span class="nv">$ </span>shellinaboxd <span class="c">#启动shellinabox</span>
 
-netstat -tulnp<span class="p">|</span>grep 4200
+<span class="nv">$ </span>netstat -tulnp<span class="p">|</span>grep 4200
 tcp        <span class="m">0</span>      <span class="m">0</span> 0.0.0.0:4200            0.0.0.0:*               LISTEN
 
 <span class="c">#接下来配置settings.py,找到WebSSH部分</span>

@@ -22,6 +22,13 @@ CrazyEye是基于Python开发的一款简单易用的IT管理软件，目前主�
 .. warning:: 目前暂时不支持对Windows系统的操作审计和批量任务
 
 
+下载
+========
+
+.. code-block:: shell
+
+   $ git clone https://github.com/triaquae/CrazyEye.git
+
 
 安装
 ==================
@@ -45,15 +52,15 @@ CrazyEye安装所需要的组件：
 .. code-block:: shell
 
 
-   pip install Django==1.8.4
+   $ pip install Django==1.8.4
 
-   pip install django-suit==0.2.15
+   $ pip install django-suit==0.2.15
 
-   pip install paramiko
+   $ pip install paramiko
 
    #安装python连接mysql的模块
-   yum install MySQL-python  #for CentOS
-   pip install MySQL-python  #for Ubuntu
+   $ yum install MySQL-python  #for CentOS
+   $ pip install MySQL-python  #for Ubuntu
 
 2. 安装Shellinabox
 
@@ -64,8 +71,8 @@ CrazyEye安装所需要的组件：
 .. code-block:: shell
 
 
-    ./configure
-    make && makeinstall
+    $ ./configure
+    $ make && makeinstall
 
 
 3. 安装CrazyEye
@@ -111,10 +118,10 @@ CrazyEye安装所需要的组件：
 
 .. code-block:: python
 
-   python manage.py makemigrations
-   python manage.py migrate
+   $ python manage.py makemigrations
+   $ python manage.py migrate
 
-   python manage.py createsuperuser #创建管理员用户
+   $ python manage.py createsuperuser #创建管理员用户
 
 
 6. 创建一个审计用户 :code:`crazy_audit` ,并在此用户的 :code:`.bashrc` 用户环境变量文件的最底部，加上以下两条代码：
@@ -122,16 +129,16 @@ CrazyEye安装所需要的组件：
 .. code-block:: shell
    :emphasize-lines: 13,14,15
 
-   useradd crazy_audit
+   $ useradd crazy_audit
 
-   su - crazy_audit
-   vi .bashrc
+   $ su - crazy_audit
+   $ vi .bashrc
    #在尾部添加以下2行代码：
    python /YourCrazyEyeInstallPath/CrazyEye/crazy_eyes_mgr.py run
    logout
 
    #此时crazy_audit用户的环境变量配置文件 看上去如下
-   more /home/crazy_audit/.bashrc
+   $ more /home/crazy_audit/.bashrc
    ...
    ...
    python /YourCrazyEyeInstallPath/CrazyEye/crazy_eyes_mgr.py run   #把YourCrazyEyeInstallPath替换成你自己的软件安装目录

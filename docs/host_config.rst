@@ -54,9 +54,9 @@ CrazyEye以多进程并发的形式执行批量任务，你可以通过修改配
     #还记得在安装CrazyEye时需要安装的Shellinabox吗,Well，你的WEB SSH支持就得依赖这个插件，事实上Shellinabox是一个独立的开源工具，我们只不需要在CrazyEye配置好如何调用它即可
     #当你安装完Shellinabox后，执行shellinaboxd 即可启动该软件，然后执行netstat -tulnp |grep 4200查看其状态
 
-    shellinaboxd #启动shellinabox
+    $ shellinaboxd #启动shellinabox
 
-    netstat -tulnp|grep 4200
+    $ netstat -tulnp|grep 4200
     tcp        0      0 0.0.0.0:4200            0.0.0.0:*               LISTEN
 
     #接下来配置settings.py,找到WebSSH部分

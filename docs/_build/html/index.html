@@ -71,7 +71,13 @@
 </div>
 </div>
 <div class="section" id="id1">
-<h1>安装<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1>下载<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>git clone https://github.com/triaquae/CrazyEye.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h1>安装<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h1>
 <p>在安装CrazyEye前请确保你的Linux系统的Python版本是2.7+,Python3.0+还未做过测试,请谨慎使用</p>
 <p>CrazyEye安装所需要的组件：</p>
 <ul class="simple">
@@ -86,15 +92,15 @@
 <ol class="arabic simple">
 <li>安装Django,Paramiko,Django-suite,MySQL-python</li>
 </ol>
-<div class="highlight-shell"><div class="highlight"><pre>pip install <span class="nv">Django</span><span class="o">==</span>1.8.4
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>pip install <span class="nv">Django</span><span class="o">==</span>1.8.4
 
-pip install django-suit<span class="o">==</span>0.2.15
+<span class="nv">$ </span>pip install django-suit<span class="o">==</span>0.2.15
 
-pip install paramiko
+<span class="nv">$ </span>pip install paramiko
 
 <span class="c">#安装python连接mysql的模块</span>
-yum install MySQL-python  <span class="c">#for CentOS</span>
-pip install MySQL-python  <span class="c">#for Ubuntu</span>
+<span class="nv">$ </span>yum install MySQL-python  <span class="c">#for CentOS</span>
+<span class="nv">$ </span>pip install MySQL-python  <span class="c">#for Ubuntu</span>
 </pre></div>
 </div>
 <ol class="arabic" start="2">
@@ -103,8 +109,8 @@ pip install MySQL-python  <span class="c">#for Ubuntu</span>
 <p>解压下载包进入shellinabox源码目录，进行编译安装</p>
 </li>
 </ol>
-<div class="highlight-shell"><div class="highlight"><pre>./configure
-make <span class="o">&amp;&amp;</span> makeinstall
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./configure
+<span class="nv">$ </span>make <span class="o">&amp;&amp;</span> makeinstall
 </pre></div>
 </div>
 <ol class="arabic" start="3">
@@ -145,25 +151,25 @@ default-character-set<span class="o">=</span>utf8
 <ol class="arabic simple" start="5">
 <li>在主目录执行以下命令来初始化CrazyEye的数据库表结构：</li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">makemigrations</span>
-<span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">migrate</span>
+<div class="highlight-python"><div class="highlight"><pre>$ python manage.py makemigrations
+$ python manage.py migrate
 
-<span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">createsuperuser</span> <span class="c">#创建管理员用户</span>
+$ python manage.py createsuperuser #创建管理员用户
 </pre></div>
 </div>
 <ol class="arabic simple" start="6">
 <li>创建一个审计用户 <code class="code docutils literal"><span class="pre">crazy_audit</span></code> ,并在此用户的 <code class="code docutils literal"><span class="pre">.bashrc</span></code> 用户环境变量文件的最底部，加上以下两条代码：</li>
 </ol>
-<div class="highlight-shell"><div class="highlight"><pre>useradd crazy_audit
+<div class="highlight-shell"><div class="highlight"><pre>$ useradd crazy_audit
 
-su - crazy_audit
-vi .bashrc
+$ su - crazy_audit
+$ vi .bashrc
 #在尾部添加以下2行代码：
 python /YourCrazyEyeInstallPath/CrazyEye/crazy_eyes_mgr.py run
 logout
 
 #此时crazy_audit用户的环境变量配置文件 看上去如下
-more /home/crazy_audit/.bashrc
+$ more /home/crazy_audit/.bashrc
 ...
 ...
 <span class="hll">python /YourCrazyEyeInstallPath/CrazyEye/crazy_eyes_mgr.py run   #把YourCrazyEyeInstallPath替换成你自己的软件安装目录
@@ -184,8 +190,8 @@ Password:
 </ol>
 <p>恭喜！你已成功安装了CrazyEye,现在可以开始配置使用了！</p>
 </div>
-<div class="section" id="id2">
-<h1>配置CrazyEye<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id3">
+<h1>配置CrazyEye<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h1>
 <ul class="simple">
 <li><a class="reference internal" href="host_config.html#id1"><span>创建主机</span></a></li>
 <li><a class="reference internal" href="host_config.html#id3"><span>创建远程用户</span></a></li>
@@ -196,8 +202,8 @@ Password:
 <li><a class="reference internal" href="host_config.html#webssh"><span>配置WebSSH</span></a></li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h1>部署到生产环境<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id4">
+<h1>部署到生产环境<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h1>
 <p>CrazyEye默认是以测试环境运行的，在测试环境下，所有的功能虽然和生产环境模式都是一样的，但是却是不能支持多并发的，因为CrazyEye所依赖的Django WEB服务器是单线程的，So如果想让CrazeEye支持高并发，需要借助Apachel或Nginx Web服务器，我们建议你使用Nginx来做CrazyEye的高并发。</p>
 <p>若想让nginx支持Django web服务，需要借助一个第三方Python模块叫uwsgi,具体安装和配置nginx支持Django的方法请参考uwsgi官方文档！</p>
 <p>Uwsgi文档: <a class="reference external" href="http://uwsgi-docs.readthedocs.org/en/latest/tutorials/Django_and_nginx.html">http://uwsgi-docs.readthedocs.org/en/latest/tutorials/Django_and_nginx.html</a></p>
@@ -214,8 +220,8 @@ Password:
 <p>username:</p>
 <p>password:</p>
 </div>
-<div class="section" id="id4">
-<h1>作者介绍<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id5">
+<h1>作者介绍<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h1>
 <p>Alex,多年运维+自动化开发经验,曾任职公安部、飞信、Nokia中国、中金公司、Advent软件、汽车之家等公司,目前任老男孩教育Python教学总监，热爱技术、电影、音乐、旅游、妹子！</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
@@ -223,8 +229,8 @@ Password:
 </div>
 <img alt="_images/author_pic.jpg" src="_images/author_pic.jpg" />
 </div>
-<div class="section" id="id5">
-<h1>技术支持<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id6">
+<h1>技术支持<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h1>
 <p>目前CrazyEye发布是的1.0测试版,由于时间有限，在使用过程中难免会出现一些小bug,你可以加入 <code class="code docutils literal"><span class="pre">CrazyEye官方支持QQ群(29215534)</span></code> 提交bug,我会尽快回复！</p>
 </div>
 
@@ -237,13 +243,14 @@ Password:
   <h3><a href="#">內容目录</a></h3>
   <ul>
 <li><a class="reference internal" href="#">CrazyEye介绍</a></li>
-<li><a class="reference internal" href="#id1">安装</a></li>
-<li><a class="reference internal" href="#id2">配置CrazyEye</a></li>
-<li><a class="reference internal" href="#id3">部署到生产环境</a></li>
+<li><a class="reference internal" href="#id1">下载</a></li>
+<li><a class="reference internal" href="#id2">安装</a></li>
+<li><a class="reference internal" href="#id3">配置CrazyEye</a></li>
+<li><a class="reference internal" href="#id4">部署到生产环境</a></li>
 <li><a class="reference internal" href="#screenshots">ScreenShots</a></li>
 <li><a class="reference internal" href="#live-demo">Live Demo</a></li>
-<li><a class="reference internal" href="#id4">作者介绍</a></li>
-<li><a class="reference internal" href="#id5">技术支持</a></li>
+<li><a class="reference internal" href="#id5">作者介绍</a></li>
+<li><a class="reference internal" href="#id6">技术支持</a></li>
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
