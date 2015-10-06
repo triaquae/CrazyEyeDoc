@@ -101,7 +101,7 @@ CrazyEye安装所需要的组件：
    }
 
    $ mysql -uroot -p
-   
+
    > create database CrazyEyes;
 
    > exit;

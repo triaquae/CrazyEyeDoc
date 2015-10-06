@@ -122,19 +122,25 @@
 <code class="code docutils literal"><span class="pre">CrazyEye/settings.py</span></code>, 在此配置文件中配置好与Mysql数据库的连接</p>
 </li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># Database</span>
-<span class="c"># https://docs.djangoproject.com/en/1.8/ref/settings/#databases</span>
+<div class="highlight-python"><div class="highlight"><pre># Database
+# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-<span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s">&#39;django.db.backends.mysql&#39;</span><span class="p">,</span>
-        <span class="s">&#39;NAME&#39;</span><span class="p">:</span> <span class="s">&#39;CrazyEyes&#39;</span><span class="p">,</span>  <span class="c">#需要你自己在你的mysql数据库中先创建好该数据库</span>
-        <span class="s">&#39;HOST&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>  <span class="c">#如果数据库在远程的机器上，此处填写远程数据库服务器的IP</span>
-        <span class="s">&#39;PORT&#39;</span><span class="p">:</span><span class="mi">3306</span><span class="p">,</span>
-        <span class="s">&#39;USER&#39;</span><span class="p">:</span><span class="s">&#39;root&#39;</span><span class="p">,</span>
-        <span class="s">&#39;PASSWORD&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span>  <span class="c">#为空代表没密码</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+DATABASES = {
+    &#39;default&#39;: {
+        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
+        &#39;NAME&#39;: &#39;CrazyEyes&#39;,  #需要你自己在你的mysql数据库中先创建好该数据库
+        &#39;HOST&#39;: &#39;&#39;,  #如果数据库在远程的机器上，此处填写远程数据库服务器的IP
+        &#39;PORT&#39;:3306,
+        &#39;USER&#39;:&#39;root&#39;,
+        &#39;PASSWORD&#39;: &#39;&#39;  #为空代表没密码
+    }
+}
+
+$ mysql -uroot -p
+
+&gt; create database CrazyEyes;
+
+&gt; exit;
 </pre></div>
 </div>
 <ol class="arabic" start="4">
