@@ -40,6 +40,7 @@ CrazyEye安装所需要的组件：
 - Django 1.8+
 - Paramiko 最新版本
 - Django suite
+- django-session-security
 - Shellinabox
 - Mysql
 - Python 连接Mysql的模块
@@ -55,6 +56,8 @@ CrazyEye安装所需要的组件：
    $ pip install Django==1.8.4
 
    $ pip install django-suit==0.2.15
+
+   $ pip install django-session-security
 
    $ pip install paramiko
 
