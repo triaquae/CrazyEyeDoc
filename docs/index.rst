@@ -100,6 +100,11 @@ CrazyEye安装所需要的组件：
        }
    }
 
+   $ mysql -uroot -p
+   
+   > create database CrazyEyes;
+
+   > exit;
 
 4. 配置Mysql数据库支持中文
 
