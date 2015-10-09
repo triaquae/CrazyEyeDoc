@@ -138,7 +138,7 @@ DATABASES = {
 
 $ mysql -uroot -p
 
-&gt; create database CrazyEyes;
+&gt; create database CrazyEyes character set utf8; #一定要设置成utf8格式噢
 
 &gt; exit;
 </pre></div>
@@ -184,7 +184,7 @@ $ more /home/crazy_audit/.bashrc
 <span class="hll">python /YourCrazyEyeInstallPath/CrazyEye/crazy_eyes_mgr.py run   #把YourCrazyEyeInstallPath替换成你自己的软件安装目录
 </span><span class="hll">logout
 </span><span class="hll">
-</span>#用ssh登录到此用户，在输入用户名密码后，如果显示以下提示，则代表配置成功
+</span>#用ssh登录到此用户，在输入用户名密码后，如果显示以下提示，则代表配置成功 (执行此步之前,先执行第7步，登录后台http://localhost:8000/admin,找到CrazyEye账户,创建一个用户,再来这里登录!!)
 
 press ENTER if you don&#39;t have token, [input your token]: #此处敲回车
 Username:
@@ -193,7 +193,7 @@ Password:
 </div>
 <ol class="arabic" start="7">
 <li><p class="first">启动WEB登录页面</p>
-<p><code class="code docutils literal"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">runserver</span> <span class="pre">0.0.0.0:8000</span></code>, 然后在浏览器输入此地址:code:<cite>http://localhost:8000/admin</cite>,输入你刚才创建的管理员用户名和密码</p>
+<p><code class="code docutils literal"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">runserver</span> <span class="pre">0.0.0.0:8000</span></code> , 然后在浏览器输入此地址 <code class="code docutils literal"><span class="pre">http://localhost:8000/admin</span></code> ,输入你刚才创建的管理员用户名和密码</p>
 <img alt="_images/crazy_eye_admin_login.png" src="_images/crazy_eye_admin_login.png" />
 </li>
 </ol>

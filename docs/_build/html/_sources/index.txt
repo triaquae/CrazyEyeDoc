@@ -102,7 +102,7 @@ CrazyEye安装所需要的组件：
 
    $ mysql -uroot -p
 
-   > create database CrazyEyes;
+   > create database CrazyEyes character set utf8; #一定要设置成utf8格式噢
 
    > exit;
 
@@ -152,7 +152,7 @@ CrazyEye安装所需要的组件：
    python /YourCrazyEyeInstallPath/CrazyEye/crazy_eyes_mgr.py run   #把YourCrazyEyeInstallPath替换成你自己的软件安装目录
    logout
 
-   #用ssh登录到此用户，在输入用户名密码后，如果显示以下提示，则代表配置成功
+   #用ssh登录到此用户，在输入用户名密码后，如果显示以下提示，则代表配置成功 (执行此步之前,先执行第7步，登录后台http://localhost:8000/admin,找到CrazyEye账户,创建一个用户,再来这里登录!!)
 
    press ENTER if you don't have token, [input your token]: #此处敲回车
    Username:
@@ -161,7 +161,7 @@ CrazyEye安装所需要的组件：
 
 7. 启动WEB登录页面
 
-   :code:`python manage.py runserver 0.0.0.0:8000`, 然后在浏览器输入此地址:code:`http://localhost:8000/admin`,输入你刚才创建的管理员用户名和密码
+   :code:`python manage.py runserver 0.0.0.0:8000` , 然后在浏览器输入此地址 :code:`http://localhost:8000/admin` ,输入你刚才创建的管理员用户名和密码
 
    .. image:: _static/imgs/crazy_eye_admin_login.png
 
