@@ -63,19 +63,18 @@ CrazyEye安装所需要的组件：
 
    #安装python连接mysql的模块
    $ yum install MySQL-python  #for CentOS
-   $ pip install MySQL-python  #for Ubuntu
+   $ sudo apt-get install python-mysqldb  #for Ubuntu
 
 2. 安装Shellinabox
 
-   从此处下载 https://code.google.com/p/shellinabox/downloads/list
-
-   解压下载包进入shellinabox源码目录，进行编译安装
 
 .. code-block:: shell
 
-
+    $ git clone https://github.com/anilgulecha/shellinabox.git
+    $ cd shellinabox
     $ ./configure
     $ make && makeinstall
+
 
 
 3. 安装CrazyEye
@@ -126,10 +125,11 @@ CrazyEye安装所需要的组件：
 
 .. code-block:: python
 
+   $ python manage.py syncdb
    $ python manage.py makemigrations
    $ python manage.py migrate
 
-   $ python manage.py createsuperuser #创建管理员用户
+   $ python manage.py createsuperuser #创建管理员用户(如果在执行python manage.py syncdb的时候已经创建了用户了，这一步可以不执行)
 
 
 6. 创建一个审计用户 :code:`crazy_audit` ,并在此用户的 :code:`.bashrc` 用户环境变量文件的最底部，加上以下两条代码：

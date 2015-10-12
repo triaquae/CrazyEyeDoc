@@ -51,7 +51,7 @@ CrazyEye以多进程并发的形式执行批量任务，你可以通过修改配
 
 .. code-block:: shell
 
-    #还记得在安装CrazyEye时需要安装的Shellinabox吗,Well，你的WEB SSH支持就得依赖这个插件，事实上Shellinabox是一个独立的开源工具，我们只不需要在CrazyEye配置好如何调用它即可
+    #还记得在安装CrazyEye时需要安装的Shellinabox吗,Well，你的WEB SSH支持就得依赖这个插件，事实上Shellinabox是一个独立的开源工具，我们只需要在CrazyEye配置好如何调用它即可
     #当你安装完Shellinabox后，执行shellinaboxd 即可启动该软件，然后执行netstat -tulnp |grep 4200查看其状态
 
     $ shellinaboxd #启动shellinabox
@@ -59,8 +59,15 @@ CrazyEye以多进程并发的形式执行批量任务，你可以通过修改配
     $ netstat -tulnp|grep 4200
     tcp        0      0 0.0.0.0:4200            0.0.0.0:*               LISTEN
 
-    #接下来配置settings.py,找到WebSSH部分
-    WebSSH = ['localhost',4200] #把’localhost‘替换成你的Shellinabox服务的启动IP
+    #接下来配置settings.py,找到SHELLINABOX部分
+
+
+    SHELLINABOX = {
+        'host':'localhost', #把’localhost‘替换成你的Shellinabox服务的启动IP
+        'port':4200,
+        'username':'crazy_audit', #你之前创建的crazy_audit账户,(这个账户相当于公共账户,从web页面登录webssh时会自动帮你填写)
+        'password': 'alex3714'    #账户密码
+    }
 
     #此时，再打开WEB页面,就可以直接从WEB登录啦！
 

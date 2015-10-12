@@ -103,16 +103,15 @@
 
 <span class="c">#安装python连接mysql的模块</span>
 <span class="nv">$ </span>yum install MySQL-python  <span class="c">#for CentOS</span>
-<span class="nv">$ </span>pip install MySQL-python  <span class="c">#for Ubuntu</span>
+<span class="nv">$ </span>sudo apt-get install python-mysqldb  <span class="c">#for Ubuntu</span>
 </pre></div>
 </div>
-<ol class="arabic" start="2">
-<li><p class="first">安装Shellinabox</p>
-<p>从此处下载 <a class="reference external" href="https://code.google.com/p/shellinabox/downloads/list">https://code.google.com/p/shellinabox/downloads/list</a></p>
-<p>解压下载包进入shellinabox源码目录，进行编译安装</p>
-</li>
+<ol class="arabic simple" start="2">
+<li>安装Shellinabox</li>
 </ol>
-<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./configure
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>git clone https://github.com/anilgulecha/shellinabox.git
+<span class="nv">$ </span><span class="nb">cd </span>shellinabox
+<span class="nv">$ </span>./configure
 <span class="nv">$ </span>make <span class="o">&amp;&amp;</span> makeinstall
 </pre></div>
 </div>
@@ -160,10 +159,11 @@ default-character-set<span class="o">=</span>utf8
 <ol class="arabic simple" start="5">
 <li>在主目录执行以下命令来初始化CrazyEye的数据库表结构：</li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre>$ python manage.py makemigrations
+<div class="highlight-python"><div class="highlight"><pre>$ python manage.py syncdb
+$ python manage.py makemigrations
 $ python manage.py migrate
 
-$ python manage.py createsuperuser #创建管理员用户
+$ python manage.py createsuperuser #创建管理员用户(如果在执行python manage.py syncdb的时候已经创建了用户了，这一步可以不执行)
 </pre></div>
 </div>
 <ol class="arabic simple" start="6">
