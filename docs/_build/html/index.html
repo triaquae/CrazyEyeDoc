@@ -93,7 +93,7 @@
 <ol class="arabic simple">
 <li>安装Django,Paramiko,Django-suite,MySQL-python</li>
 </ol>
-<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>pip install <span class="nv">Django</span><span class="o">==</span>1.8.4
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>pip install <span class="nv">Django</span><span class="o">==</span>1.8.5
 
 <span class="nv">$ </span>pip install django-suit<span class="o">==</span>0.2.15
 
@@ -112,7 +112,7 @@
 <div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>git clone https://github.com/anilgulecha/shellinabox.git
 <span class="nv">$ </span><span class="nb">cd </span>shellinabox
 <span class="nv">$ </span>./configure
-<span class="nv">$ </span>make <span class="o">&amp;&amp;</span> makeinstall
+<span class="nv">$ </span>make <span class="o">&amp;&amp;</span> makeinstall <span class="c">#安装出了错的话请到https://github.com/anilgulecha/shellinabox.git 页面上按照提示修复</span>
 </pre></div>
 </div>
 <ol class="arabic" start="3">
@@ -121,39 +121,29 @@
 <code class="code docutils literal"><span class="pre">CrazyEye/settings.py</span></code>, 在此配置文件中配置好与Mysql数据库的连接</p>
 </li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre># Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Database</span>
+<span class="c"># https://docs.djangoproject.com/en/1.8/ref/settings/#databases</span>
 
-DATABASES = {
-    &#39;default&#39;: {
-        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
-        &#39;NAME&#39;: &#39;CrazyEyes&#39;,  #需要你自己在你的mysql数据库中先创建好该数据库
-        &#39;HOST&#39;: &#39;&#39;,  #如果数据库在远程的机器上，此处填写远程数据库服务器的IP
-        &#39;PORT&#39;:3306,
-        &#39;USER&#39;:&#39;root&#39;,
-        &#39;PASSWORD&#39;: &#39;&#39;  #为空代表没密码
-    }
-}
-
-$ mysql -uroot -p
-
-&gt; create database CrazyEyes character set utf8; #一定要设置成utf8格式噢
-
-&gt; exit;
+<span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s">&#39;django.db.backends.mysql&#39;</span><span class="p">,</span>
+        <span class="s">&#39;NAME&#39;</span><span class="p">:</span> <span class="s">&#39;CrazyEyes&#39;</span><span class="p">,</span>  <span class="c">#需要你自己在你的mysql数据库中先创建好该数据库</span>
+        <span class="s">&#39;HOST&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>  <span class="c">#如果数据库在远程的机器上，此处填写远程数据库服务器的IP</span>
+        <span class="s">&#39;PORT&#39;</span><span class="p">:</span><span class="mi">3306</span><span class="p">,</span>
+        <span class="s">&#39;USER&#39;</span><span class="p">:</span><span class="s">&#39;root&#39;</span><span class="p">,</span>
+        <span class="s">&#39;PASSWORD&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span>  <span class="c">#为空代表没密码</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<ol class="arabic" start="4">
-<li><p class="first">配置Mysql数据库支持中文</p>
-<p>打开mysql 数据库配置文件，分别在[mysqld]和[client]部分添加以下内容:</p>
-</li>
+<ol class="arabic simple" start="4">
+<li>创建CrazyEye数据库</li>
 </ol>
-<div class="highlight-shell"><div class="highlight"><pre><span class="o">[</span>mysqld<span class="o">]</span>
-character-set-server<span class="o">=</span>utf8
-...
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>mysql -uroot -p
 
-<span class="o">[</span>client<span class="o">]</span>
-default-character-set<span class="o">=</span>utf8
-<span class="c">#注意，修改完配置后需要重启Mysql服务后才能生活噢！</span>
+&gt; create database CrazyEyes character <span class="nb">set </span>utf8<span class="p">;</span> <span class="c">#一定要设置成utf8格式噢</span>
+
+&gt; <span class="nb">exit</span><span class="p">;</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">
@@ -169,7 +159,7 @@ $ python manage.py createsuperuser #创建管理员用户(如果在执行python 
 <ol class="arabic simple" start="6">
 <li>创建一个审计用户 <code class="code docutils literal"><span class="pre">crazy_audit</span></code> ,并在此用户的 <code class="code docutils literal"><span class="pre">.bashrc</span></code> 用户环境变量文件的最底部，加上以下两条代码：</li>
 </ol>
-<div class="highlight-shell"><div class="highlight"><pre>$ useradd crazy_audit
+<div class="highlight-shell"><div class="highlight"><pre>$ useradd crazy_audit #(ubuntu上执行adduser crazy_audit )
 
 $ su - crazy_audit
 $ vi .bashrc

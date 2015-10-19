@@ -53,7 +53,7 @@ CrazyEye安装所需要的组件：
 .. code-block:: shell
 
 
-   $ pip install Django==1.8.4
+   $ pip install Django==1.8.5
 
    $ pip install django-suit==0.2.15
 
@@ -73,7 +73,7 @@ CrazyEye安装所需要的组件：
     $ git clone https://github.com/anilgulecha/shellinabox.git
     $ cd shellinabox
     $ ./configure
-    $ make && makeinstall
+    $ make && makeinstall #安装出了错的话请到https://github.com/anilgulecha/shellinabox.git 页面上按照提示修复
 
 
 
@@ -99,25 +99,18 @@ CrazyEye安装所需要的组件：
        }
    }
 
+
+
+4. 创建CrazyEye数据库
+
+
+.. code-block:: shell
+
    $ mysql -uroot -p
 
    > create database CrazyEyes character set utf8; #一定要设置成utf8格式噢
 
    > exit;
-
-4. 配置Mysql数据库支持中文
-
-   打开mysql 数据库配置文件，分别在[mysqld]和[client]部分添加以下内容:
-
-.. code-block:: shell
-
-   [mysqld]
-   character-set-server=utf8
-   ...
-
-   [client]
-   default-character-set=utf8
-   #注意，修改完配置后需要重启Mysql服务后才能生活噢！
 
 
 
@@ -137,7 +130,7 @@ CrazyEye安装所需要的组件：
 .. code-block:: shell
    :emphasize-lines: 13,14,15
 
-   $ useradd crazy_audit
+   $ useradd crazy_audit #(ubuntu上执行adduser crazy_audit )
 
    $ su - crazy_audit
    $ vi .bashrc
